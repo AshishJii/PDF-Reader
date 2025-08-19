@@ -28,6 +28,7 @@ COPY hooks ./hooks
 COPY lib ./lib
 COPY scripts ./scripts
 COPY styles ./styles
+COPY types ./types
 COPY .env .
 # COPY public ./public
 
