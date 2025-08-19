@@ -26,6 +26,7 @@ COPY hooks ./hooks
 COPY lib ./lib
 COPY scripts ./scripts
 COPY styles ./styles
+COPY .env .
 # COPY public ./public
 
 # install deps
