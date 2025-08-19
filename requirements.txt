@@ -11,3 +11,5 @@ python-dotenv
 tiktoken
 pypdf
 azure-cognitiveservices-speech
+audioop-lts==0.1.0
+pydub==0.25.1
