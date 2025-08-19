@@ -1,0 +1,13 @@
+langchain
+langchain-core
+langchain-community
+langchain-huggingface
+langchain-google-genai
+pypdfium2
+chromadb
+rank_bm25
+faiss-cpu
+python-dotenv
+tiktoken
+pypdf
+azure-cognitiveservices-speech
