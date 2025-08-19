@@ -31,14 +31,14 @@ docker build --platform linux/amd64 -t yourimageidentifier .
 ### 2) Run
 
 ```bash
-docker run -v /path/to/credentials:/credentials \
-  -e ADOBE_EMBED_API_KEY=<ADOBE_EMBED_API_KEY> \
+docker run -v "$HOME/credentials:/credentials" \
+  -e ADOBE_EMBED_API_KEY="your_adobe_embed_api_key" \
   -e LLM_PROVIDER=gemini \
   -e GOOGLE_APPLICATION_CREDENTIALS=/credentials/adbe-gcp.json \
-  -e GEMINI_MODEL=gemini-2.5-flash \
+  -e GEMINI_MODEL="gemini-2.5-flash" \
   -e TTS_PROVIDER=azure \
-  -e AZURE_TTS_KEY=TTS_KEY \
-  -e AZURE_TTS_ENDPOINT=TTS_ENDPOINT \
+  -e AZURE_TTS_KEY="your_azure_tts_key" \
+  -e AZURE_TTS_ENDPOINT="https://<region>.tts.speech.microsoft.com/cognitiveservices/v1" \
   -p 8080:8080 yourimageidentifier
 ```
 
