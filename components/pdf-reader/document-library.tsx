@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Upload, FileText, AlertCircle } from "lucide-react"
+import { Upload, FileText, AlertCircle, BookOpen } from "lucide-react"
 import { UploadArea } from "./upload-area"
 import { DocumentItem } from "./document-item"
 import type { PDFDocument } from "@/types/pdf-reader"
@@ -54,11 +54,21 @@ export function DocumentLibrary({
 
   return (
     <Card className="flex flex-col w-1/4 rounded-none border-r border-t-0 border-l-0 border-b-0">
-      <CardHeader className="pb-4 flex-shrink-0">
-        <CardTitle className="text-lg font-bold mb-2">PDF Reader Application</CardTitle>
-        <div className="flex items-center gap-2">
-          <Upload className="h-5 w-5" />
-          <span className="text-base">Document Library</span>
+      <CardHeader className="pb-4 flex-shrink-0 bg-gradient-to-br from-amber-50 to-orange-50 border-b border-amber-100">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="p-2 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg shadow-sm">
+            <BookOpen className="h-5 w-5 text-white" />
+          </div>
+          <div>
+            <CardTitle className="text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent leading-tight">
+              PDF Reader
+            </CardTitle>
+            <p className="text-xs text-amber-600/80 font-medium tracking-wide">INTELLIGENT ANALYSIS</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-amber-700">
+          <Upload className="h-4 w-4" />
+          <span className="text-sm font-medium">Document Library</span>
         </div>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col px-4 min-h-0">

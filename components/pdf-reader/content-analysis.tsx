@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Lightbulb, FileText, Zap } from "lucide-react"
+import { Lightbulb, FileText, Zap, Mic } from "lucide-react"
 import { InsightsPanel } from "./insights-panel"
 import { RelatedPanel } from "./related-panel"
 import { PodcastPanel } from "./podcast-panel"
@@ -38,75 +38,75 @@ export function ContentAnalysis({
   onContextClick,
 }: ContentAnalysisProps) {
   return (
-    <Card className="flex flex-col w-1/3 rounded-none border-t-0 border-l-0 border-b-0 border-r-0">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-base mb-3">Content Analysis</CardTitle>
+    <Card className="flex flex-col w-1/3 rounded-none border-t-0 border-l-0 border-b-0 border-r-0 bg-card">
+      <CardHeader className="pb-4 px-6">
+        <CardTitle className="text-lg font-bold text-foreground mb-4">Content Analysis</CardTitle>
         {selectedDocument && (
           <Button
             onClick={onGetSelectedContent}
             disabled={isGettingSelection}
-            className="mb-3 w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+            className="mb-6 w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
             size="lg"
           >
             {isGettingSelection ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-foreground mr-3"></div>
                 Processing...
               </>
             ) : (
               <>
-                <Zap className="h-5 w-5 mr-2" />
+                <Zap className="h-5 w-5 mr-3" />
                 Analyse Selected Text
               </>
             )}
           </Button>
         )}
-        <div className="flex border-b bg-gray-50 rounded-t-lg">
+        <div className="flex bg-muted/30 rounded-md p-0.5 border border-border/30">
           <button
             onClick={() => onActiveTabChange("insights")}
-            className={`flex-1 px-4 py-3 text-sm font-semibold border-b-3 transition-all duration-200 ${
+            className={`flex-1 px-3 py-2 text-xs font-medium rounded-sm transition-all duration-200 ${
               activeTab === "insights"
-                ? "border-blue-500 text-blue-600 bg-white shadow-sm"
-                : "border-transparent text-gray-600 hover:text-blue-500 hover:bg-white/50"
+                ? "bg-background/80 text-foreground/90 shadow-sm border border-border/50"
+                : "text-muted-foreground/70 hover:text-muted-foreground hover:bg-background/30"
             }`}
           >
-            <div className="flex items-center justify-center gap-2">
-              <Lightbulb className="h-4 w-4" />
+            <div className="flex items-center justify-center gap-1.5">
+              <Lightbulb className="h-3.5 w-3.5" />
               Insights
             </div>
           </button>
           <button
             onClick={() => onActiveTabChange("related")}
-            className={`flex-1 px-4 py-3 text-sm font-semibold border-b-3 transition-all duration-200 ${
+            className={`flex-1 px-3 py-2 text-xs font-medium rounded-sm transition-all duration-200 ${
               activeTab === "related"
-                ? "border-blue-500 text-blue-600 bg-white shadow-sm"
-                : "border-transparent text-gray-600 hover:text-blue-500 hover:bg-white/50"
+                ? "bg-background/80 text-foreground/90 shadow-sm border border-border/50"
+                : "text-muted-foreground/70 hover:text-muted-foreground hover:bg-background/30"
             }`}
           >
-            <div className="flex items-center justify-center gap-2">
-              <FileText className="h-4 w-4" />
+            <div className="flex items-center justify-center gap-1.5">
+              <FileText className="h-3.5 w-3.5" />
               Related
             </div>
           </button>
           <button
             onClick={() => onActiveTabChange("podcast")}
-            className={`flex-1 px-4 py-3 text-sm font-semibold border-b-3 transition-all duration-200 ${
+            className={`flex-1 px-3 py-2 text-xs font-medium rounded-sm transition-all duration-200 ${
               activeTab === "podcast"
-                ? "border-blue-500 text-blue-600 bg-white shadow-sm"
-                : "border-transparent text-gray-600 hover:text-blue-500 hover:bg-white/50"
+                ? "bg-background/80 text-foreground/90 shadow-sm border border-border/50"
+                : "text-muted-foreground/70 hover:text-muted-foreground hover:bg-background/30"
             }`}
           >
-            <div className="flex items-center justify-center gap-2">
-              <div className="h-4 w-4">🎙️</div>
+            <div className="flex items-center justify-center gap-1.5">
+              <Mic className="h-3.5 w-3.5" />
               Podcast
             </div>
           </button>
         </div>
       </CardHeader>
-      <CardContent className="flex-1 px-4 min-h-0">
+      <CardContent className="flex-1 px-6 pb-6 min-h-0">
         {selectedDocument ? (
           <div className="h-full flex flex-col">
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto pr-2 -mr-2">
               {activeTab === "insights" && (
                 <InsightsPanel insights={insights} isProcessingInsights={isProcessingInsights} />
               )}
@@ -123,8 +123,9 @@ export function ContentAnalysis({
         ) : (
           <div className="h-full flex items-center justify-center">
             <div className="text-center text-muted-foreground">
-              <FileText className="h-12 w-12 mx-auto mb-2 opacity-50" />
-              <p>Related documents will appear here</p>
+              <FileText className="h-16 w-16 mx-auto mb-4 opacity-30" />
+              <p className="text-base font-medium mb-2">Ready for Analysis</p>
+              <p className="text-sm">Upload and select a document to begin</p>
             </div>
           </div>
         )}

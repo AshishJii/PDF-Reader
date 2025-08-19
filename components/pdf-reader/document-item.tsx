@@ -34,15 +34,19 @@ export function DocumentItem({
 
   return (
     <div
-      className={`p-2 border rounded-lg cursor-pointer transition-colors hover:bg-accent ${
-        isSelected ? "bg-accent border-primary" : "border-border"
+      className={`p-2 border rounded-lg cursor-pointer transition-colors hover:bg-accent/50 ${
+        isSelected ? "bg-primary/10 border-primary shadow-sm" : "border-border hover:border-primary/30"
       }`}
       onClick={() => !document.processing && !document.error && onSelect(document)}
     >
       <div className="flex items-center gap-2">
         <FileText className="h-4 w-4 text-muted-foreground flex-shrink-0" />
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-medium truncate">{document.name}</p>
+          <p
+            className={`text-xs font-medium truncate ${isSelected ? "text-primary font-semibold" : "text-foreground"}`}
+          >
+            {document.name}
+          </p>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span>{formatFileSize(document.size)}</span>
             <span>•</span>
