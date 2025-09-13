@@ -12,6 +12,10 @@ Web-based PDF reading and “connect the dots” system for the Adobe India Hack
   * Surfaces up to 5 related sections and snippets from your library.
   * Creates an audio overview or podcast based on the selected text and related insights.
 
+## Working Demo
+
+https://github.com/user-attachments/assets/7c9a9aa5-0bce-4062-97ba-f1587321f4ba
+
 ## Tech summary
 
 * PDF render: Adobe PDF Embed API (preferred).
